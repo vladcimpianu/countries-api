@@ -1,9 +1,9 @@
-// const countriesRepositories = require('../repositories/countriesRepositories');
-const countriesRepositories = require('../repositories/countriesRepositories');
+// const countriesRepository = require('../repositories/countriesRepository');
+const countriesRepository = require('../repositories/countriesRepository');
 const countriesUtilities = require('../utilities/countriesUtilities');
 
 exports.countryExists = (req, res, next) => {
-    const availableCountries = countriesRepositories.getCountries(req.params.name);
+    const availableCountries = countriesRepository.getCountries(req.params.name);
     if(availableCountries.length !== 0) {
         req.availableCountries = availableCountries;
         next();
@@ -23,8 +23,8 @@ exports.checkCountryConformity = (req, res, next) => {
 };
 
 exports.countryToDelete = (req, res, next) => {
-    const countriesLeft = countriesRepositories.deleteCountry(req.params.name);
-    const countriesListLength = countriesRepositories.getAllCountries().length;
+    const countriesLeft = countriesRepository.deleteCountry(req.params.name);
+    const countriesListLength = countriesRepository.getAllCountries().length;
     const countryToDelete = countriesUtilities.capitalizeName(req.params.name);
     if ( countriesLeft !== countriesListLength ) {
         req.countryToDelete = countryToDelete;

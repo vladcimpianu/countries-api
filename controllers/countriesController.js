@@ -1,8 +1,8 @@
-const countriesRepositories = require('../repositories/countriesRepositories');
+const countriesRepository = require('../repositories/countriesRepository');
 // const countriesUtilities = require('../utilities/countriesUtilities');
 
 //get all countries
-exports.getAllCountries = (req, res) => {res.success(countriesRepositories.getAllCountries())};
+exports.getAllCountries = (req, res) => {res.success(countriesRepository.getAllCountries())};
 
 // Get one country
 exports.getCountries = (req, res) => {
@@ -17,7 +17,7 @@ exports.createCountry = (req,res) => {
         name,
         capital
     };
-    const countries = countriesRepositories.getAllCountries();
+    const countries = countriesRepository.getAllCountries();
     const newCountriesList = [...countries, newCountry];
     res.success(newCountriesList);
 };
@@ -32,7 +32,6 @@ exports.updateCountry = (req, res) => {
     updatedCountry.capital = countryUpdateEntries.capital ? countryUpdateEntries.capital : updatedCountry.capital;
     updatedCountry.currency = countryUpdateEntries.currency ? countryUpdateEntries.currency : updatedCountry.currency;
 
-    console.log(availableCountries);
     res.success(availableCountries);
 }
 
