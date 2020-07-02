@@ -27,8 +27,16 @@ const countries = [
         numericCode: "380",
         currency: "Euro",
         languages: "italian",
-        regionalBlocs: "EU",
+    },
+    {
+        id: 4,
+        name: "Romania",
+        domainName: "romania",
+        capital: "Bucuresti",
+        numericCode: "400",
+        currency: "Ron",
+        languages: "romanian",
+        regionalBlocs: "EU, NATO",
     }
 ]
-
 module.exports = countries;

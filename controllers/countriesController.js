@@ -35,3 +35,9 @@ exports.updateCountry = (req, res) => {
     console.log(availableCountries);
     res.success(availableCountries);
 }
+
+// Delete One Country
+exports.deleteCountry = (req, res) => {
+    const { countryToDelete, countriesLeft } = req;
+    res.success({ msg: `${countryToDelete} was successfully deleted!`, countriesLeft })
+};
